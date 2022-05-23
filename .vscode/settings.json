@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sched.h": "c",
+        "bpf_perf_event.h": "c",
+        "ptrace.h": "c"
+    }
+}
