@@ -1,0 +1,89 @@
+31-May-2022 06:24:04.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.63
+31-May-2022 06:24:04.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 11 2022 07:52:11 UTC
+31-May-2022 06:24:04.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.63.0
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.13.0-41-generic
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-8-openjdk-amd64/jre
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_312-8u312-b07-0ubuntu1-b07
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Private Build
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 06:24:04.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/conf/logging.properties
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 06:24:04.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/temp
+31-May-2022 06:24:04.754 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+31-May-2022 06:24:04.964 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-May-2022 06:24:04.977 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [344] milliseconds
+31-May-2022 06:24:04.994 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-May-2022 06:24:04.994 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.63]
+31-May-2022 06:24:05.000 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/examples]
+31-May-2022 06:24:05.266 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/examples] has finished in [267] ms
+31-May-2022 06:24:05.266 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/ROOT]
+31-May-2022 06:24:05.275 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/ROOT] has finished in [8] ms
+31-May-2022 06:24:05.275 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/manager]
+31-May-2022 06:24:05.289 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/manager] has finished in [14] ms
+31-May-2022 06:24:05.289 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/docs]
+31-May-2022 06:24:05.298 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/docs] has finished in [9] ms
+31-May-2022 06:24:05.298 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/host-manager]
+31-May-2022 06:24:05.308 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/host-manager] has finished in [10] ms
+31-May-2022 06:24:05.310 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-May-2022 06:24:05.317 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [340] milliseconds
+31-May-2022 06:25:26.675 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+31-May-2022 06:25:26.676 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-May-2022 06:25:26.678 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-May-2022 06:25:26.693 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-May-2022 06:25:26.701 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+31-May-2022 12:03:19.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.63
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          May 11 2022 07:52:11 UTC
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.63.0
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.13.0-41-generic
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-May-2022 12:03:19.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+31-May-2022 12:03:19.241 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.15+10-Ubuntu-0ubuntu0.22.04.1
+31-May-2022 12:03:19.241 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Private Build
+31-May-2022 12:03:19.241 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 12:03:19.241 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 12:03:19.249 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-May-2022 12:03:19.249 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/conf/logging.properties
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+31-May-2022 12:03:19.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+31-May-2022 12:03:19.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 12:03:19.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63
+31-May-2022 12:03:19.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/temp
+31-May-2022 12:03:19.252 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+31-May-2022 12:03:19.468 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-May-2022 12:03:19.485 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [400] milliseconds
+31-May-2022 12:03:19.521 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-May-2022 12:03:19.521 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.63]
+31-May-2022 12:03:19.526 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/examples]
+31-May-2022 12:03:19.829 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/examples] has finished in [303] ms
+31-May-2022 12:03:19.829 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/ROOT]
+31-May-2022 12:03:19.841 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/ROOT] has finished in [12] ms
+31-May-2022 12:03:19.841 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/manager]
+31-May-2022 12:03:19.859 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/manager] has finished in [18] ms
+31-May-2022 12:03:19.860 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/docs]
+31-May-2022 12:03:19.871 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/docs] has finished in [11] ms
+31-May-2022 12:03:19.871 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/host-manager]
+31-May-2022 12:03:19.884 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/vagrant/eBPF/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63/webapps/host-manager] has finished in [13] ms
+31-May-2022 12:03:19.888 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-May-2022 12:03:19.901 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [416] milliseconds
+31-May-2022 12:20:00.664 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+31-May-2022 12:20:00.666 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-May-2022 12:20:00.682 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-May-2022 12:20:00.721 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-May-2022 12:20:00.729 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

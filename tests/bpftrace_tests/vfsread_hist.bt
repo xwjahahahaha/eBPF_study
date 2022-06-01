@@ -1,0 +1,15 @@
+#!/usr/bin/bpftrace
+
+kprobe:vfs_read
+{
+    @start[tid] = nsecs;
+}
+
+kretprobe:vfs_read
+/@start[tid]/ 
+{
+    $duration_us = (nsecs - @start[tid]) / 1000;
+    @us[pid, comm] = hist($duration_us);
+    delete(@start[tid]);
+    system("ls -al");
+}

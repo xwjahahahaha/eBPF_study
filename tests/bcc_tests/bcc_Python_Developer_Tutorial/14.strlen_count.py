@@ -1,15 +1,4 @@
 #!/usr/bin/python3
-#
-# strlen_count  Trace strlen() and print a frequency count of strings.
-#               For Linux, uses BCC, eBPF. Embedded C.
-#
-# Written as a basic example of BCC and uprobes.
-#
-# Also see strlensnoop.
-#
-# Copyright 2016 Netflix, Inc.
-# Licensed under the Apache License, Version 2.0 (the "License")
-
 from __future__ import print_function
 from bcc import BPF
 from time import sleep
@@ -22,13 +11,15 @@ struct key_t {
 };
 BPF_HASH(counts, struct key_t);
 int count(struct pt_regs *ctx) {
-    if (!ctx->si)
+    if (!PT_REGS_PARM1(ctx))
         return 0;
     struct key_t key = {};
     u64 zero = 0, *val;
-    bpf_probe_read(&key.c, sizeof(key.c), (void *)ctx->si);
+    bpf_probe_read(&key.c, sizeof(key.c), (void *)PT_REGS_PARM1(ctx));
     val = counts.lookup_or_init(&key, &zero);
-    (*val)++;
+    if (val) {
+        (*val)++;
+    }
     return 0;
 };
 """)
@@ -47,4 +38,4 @@ except KeyboardInterrupt:
 print("%10s %s" % ("COUNT", "STRING"))
 counts = b.get_table("counts")
 for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
-    print("%10d \"%s\"" % (v.value, k.c.decode('string-escape')))
+    print("%10d %s" % (v.value, k.c))       
