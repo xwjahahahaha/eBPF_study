@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AGENT_HOME=${AGENT_HOME:-/usr/lib/jvm/perf-map-agent}  # from https://github.com/jvm-profiling-tools/perf-map-agent
-debug=1
+debug=0
 
 if [[ "$USER" != root ]]; then
 	echo "ERROR: not root user? exiting..."
@@ -22,15 +22,15 @@ if [[ "$1" == "-u" ]]; then
     CONTAINERID=$2
 fi
 
-CONTAINER_JAVA_HOME=$(sudo docker exec -it $CONTAINERID /bin/bash -c 'echo $JAVA_HOME' | tr -d '\n\r')
+CONTAINER_JAVA_HOME=$(docker exec -it $CONTAINERID /bin/bash -c 'echo $JAVA_HOME' | tr -d '\n\r')
 if [[ -z $CONTAINER_JAVA_HOME ]]; then
-	echo "ERROR: CONTAINER_JAVA_HOME not set correctly"
+	echo "ERROR: Container JAVA_HOME not set correctly"
 	exit
 fi
 (( debug )) && echo "CONTAINER_JAVA_HOME=$CONTAINER_JAVA_HOME"
 
 # TODO: 判断docker的drive stroage
-pid=$(sudo docker inspect $CONTAINERID | jq -r .[0].State.Pid)  # overlay2
+pid=$(docker inspect $CONTAINERID | jq -r .[0].State.Pid)  # overlay2
 if [[ -z pid ]]; then 
     echo "ERROR: get container $CONTAINERID pid for failed"
     exit
@@ -43,7 +43,7 @@ fi
 
 
 # 在宿主上获取容器目录
-MERGEDIR=$(sudo docker inspect $CONTAINERID | jq -r .[0].GraphDriver.Data.MergedDir)   # overlay2
+MERGEDIR=$(docker inspect $CONTAINERID | jq -r .[0].GraphDriver.Data.MergedDir)   # overlay2
 if [[ ! -n $MERGEDIR ]]; then
     echo "ERROR: get container $CONTAINERID MERGEDIR for failed"
     exit
@@ -69,49 +69,39 @@ if [[ "$AGENT_OUT" == "" || "$AGENT_JAR" == "" ]]; then
 fi
 
 # 复制到容器中
-TMP_PERF_MAP_DIR=$MERGEDIR/tmp_perf_map
-[[ -e $TMP_PERF_MAP_DIR ]] && rm -r $TMP_PERF_MAP_DIR
-mkdir -p $TMP_PERF_MAP_DIR
+TMP_PERF_MAP_DIR="/tmp_perf_map"
+[[ -e $MERGEDIR$TMP_PERF_MAP_DIR ]] && rm -r $MERGEDIR$TMP_PERF_MAP_DIR
+mkdir -p $MERGEDIR$TMP_PERF_MAP_DIR
 
-cp $AGENT_JAR $TMP_PERF_MAP_DIR
-cp $AGENT_OUT/libperfmap.so $TMP_PERF_MAP_DIR
+cp $AGENT_JAR $MERGEDIR$TMP_PERF_MAP_DIR
+cp $AGENT_OUT/libperfmap.so $MERGEDIR$TMP_PERF_MAP_DIR
 
 # 符号映射文件
 mapfile=/tmp/perf-$pid.map
 [[ -e $mapfile ]] && rm $mapfile
 
 # 执行
-# $MERGEDIR$JAVA_HOME/lib/tools.jar 自从openjdk-9版本后此jar包被删除以jdk.attach module替代; pid固定为容器的1号进程
+# $JAVA_HOME/lib/tools.jar 自从openjdk-9版本后此jar包被删除以jdk.attach module替代; pid固定为容器的1号进程
 DEFAULT_CONTAINER_PID=1
-CONTAINER_JAR=$TMP_PERF_MAP_DIR/attach-main.jar
-cmd="cd $TMP_PERF_MAP_DIR; $MERGEDIR$CONTAINER_JAVA_HOME/bin/java -Xms32m -Xmx128m -cp $CONTAINER_JAR:$MERGEDIR$CONTAINER_JAVA_HOME/lib/tools.jar net.virtualvoid.perf.AttachOnce $pid $opts"
+exec_cmd="cd $TMP_PERF_MAP_DIR; java -Xms32m -Xmx128m -cp $TMP_PERF_MAP_DIR/attach-main.jar:$CONTAINER_JAVA_HOME/lib/tools.jar net.virtualvoid.perf.AttachOnce $DEFAULT_CONTAINER_PID $opts"
+cmd="docker exec -it $CONTAINERID /bin/bash -c '$exec_cmd'"
 (( debug )) && echo $cmd
 
-user=$(ps ho user -p $pid)
-group=$(ps ho group -p $pid)
-if [[ "$user" != root ]]; then
-    if [[ "$user" == [0-9]* ]]; then
-        # UID only, likely GID too, run sudo with #UID:
-        cmd="sudo -u '#'$user -g '#'$group sh -c '$cmd'"
-    else
-        cmd="sudo -u $user -g $group sh -c '$cmd'"
-    fi
-fi
-
 # 输出
-echo "Mapping PID $pid (user $user):"
+echo "Mapping Container Process PID $pid (user $user):"
 if (( debug )); then
     time eval $cmd
 else
     eval $cmd
 fi
 
-CONTAINER_MAP_FILE=$MERGEDIR/tmp/perf-$DEFAULT_CONTAINER_PID.map        # 容器中生成的符号映射文件
+# 容器中生成的符号映射文件
+CONTAINER_MAP_FILE=$MERGEDIR/tmp/perf-$DEFAULT_CONTAINER_PID.map        
 if [[ -e "$CONTAINER_MAP_FILE" ]]; then
     chown root $CONTAINER_MAP_FILE
     chmod 666 $CONTAINER_MAP_FILE
     # 移动到宿主机目录
-    mv CONTAINER_MAP_FILE $mapfile
+    mv $CONTAINER_MAP_FILE $mapfile
 else
     echo "ERROR: $mapfile not created."
     # 删除docker中临时目录

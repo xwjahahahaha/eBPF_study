@@ -6,6 +6,9 @@ tools_source
 
 FlameGraph
 
-/tools_study/profile_tools/java_perf_map_test/apache-tomcat-9.0.63  
-/tools_study/profile_tools/java_perf_map_test/async-profiler  
-/tools_study/profile_tools/java_perf_map_test/perf-map-agent  
+apache-tomcat-9.0.63  
+async-profiler  
+perf-map-agent  
+pyroscope
+
+__pycache__
